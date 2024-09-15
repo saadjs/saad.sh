@@ -140,7 +140,7 @@ export default function ListLayout({
                     </div>
                   </div>
                 </article>
-                <div className="p-3 lg:p-4">{<DevIcon type={'Git'} />}</div>
+                <div className="p-3 lg:p-4">{<DevIcon icon={'Git'} />}</div>
               </li>
             )
           })}
