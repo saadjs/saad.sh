@@ -6,8 +6,8 @@ const siteMetadata = {
   description: 'Handy Code Snippets, Tips, and More!',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://saadbash.com',
-  siteRepo: 'https://github.com/saadjs/saadbash.com',
+  siteUrl: 'https://saad.sh',
+  siteRepo: 'https://github.com/saadjs/saad.sh',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   email: 'saad@saad.sh',
