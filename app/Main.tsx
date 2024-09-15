@@ -24,7 +24,7 @@ export default function Home({ posts }) {
             const { slug, date, title, summary, tags, icon } = post
             return (
               <li key={slug} className="py-12">
-                <div className="flex flex-col items-start justify-between md:flex-row">
+                <div className="flex flex-row items-center justify-between">
                   <article className="flex-1">
                     <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                       <dl>
@@ -66,7 +66,9 @@ export default function Home({ posts }) {
                       </div>
                     </div>
                   </article>
-                  <div className="p-3 lg:p-4">{<DevIcon icon={icon} />}</div>
+                  <div className="flex h-16 w-16 p-2 sm:h-20 sm:w-20 sm:p-2 lg:p-3">
+                    <DevIcon icon={icon} />
+                  </div>
                 </div>
               </li>
             )
