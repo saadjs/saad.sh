@@ -22,10 +22,10 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ['var(--font-cousine)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.orange,
         gray: colors.gray,
       },
       zIndex: {
