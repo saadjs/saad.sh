@@ -10,7 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/saadjs/saad.sh',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
-  email: 'saad@saad.sh',
+  email: 'saadbashdev@gmail.com',
   github: 'https://github.com/saadjs',
   linkedin: 'https://www.linkedin.com/in/saadbash',
   locale: 'en-US',
