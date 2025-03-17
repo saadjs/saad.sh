@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import { SearchProvider } from '@/components/SearchProvider'
 
 const space_grotesk = Cousine({
   subsets: ['latin'],
@@ -92,8 +93,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <SectionContainer>
-            <Header />
-            <main className="mb-auto">{children}</main>
+            <SearchProvider>
+              <Header />
+              <main className="mb-auto">{children}</main>
+            </SearchProvider>
             <Footer />
           </SectionContainer>
         </ThemeProviders>
