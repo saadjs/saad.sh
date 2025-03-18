@@ -78,16 +78,11 @@ function createTagCount(allPosts) {
 }
 
 function createSearchIndex(allPosts) {
-  if (
-    siteMetadata?.search?.provider === 'kbar' &&
-    siteMetadata.search.kbarConfig.searchDocumentsPath
-  ) {
-    writeFileSync(
-      `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(allPosts)))
-    )
-    console.log('Local search index generated...')
-  }
+  const searchDocPath = `${process.env.BASE_PATH || ''}/search.json`
+  writeFileSync(
+    `public/${path.basename(searchDocPath)}`,
+    JSON.stringify(allCoreContent(sortPosts(allPosts)))
+  )
 }
 
 export const Post = defineDocumentType(() => ({
