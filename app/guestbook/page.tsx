@@ -4,11 +4,9 @@ import SignIn from './sign-in.button'
 import SignOut from './sign-out.button'
 import Form from './form'
 import Messages from './message-list'
+import { genPageMetadata } from 'app/seo'
 
-export const metadata = {
-  title: 'Guestbook',
-  description: 'Sign the guestbook',
-}
+export const metadata = genPageMetadata({ title: 'Guestbook', description: 'Sign my guestbook' })
 
 export default async function Guestbook() {
   const session = await auth()
