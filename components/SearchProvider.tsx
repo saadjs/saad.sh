@@ -26,6 +26,13 @@ export const SearchProvider = ({ children }) => {
             section: 'Tags',
             perform: () => router.push('/tags'),
           },
+          {
+            id: 'guestbook',
+            name: 'Guestbook',
+            keywords: '',
+            section: 'Guestbook',
+            perform: () => router.push('/guestbook'),
+          },
         ],
         onSearchDocumentsLoad(json) {
           return json.map((post: CoreContent<Post>) => ({
