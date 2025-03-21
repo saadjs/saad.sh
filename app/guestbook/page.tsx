@@ -14,7 +14,7 @@ export default async function Guestbook() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tighter">Sign my guestbook</h1>
+      <h1 className="mb-8 text-2xl font-medium tracking-tighter">Sign my Guestbook</h1>
       <Suspense>
         {session?.user ? (
           <>
