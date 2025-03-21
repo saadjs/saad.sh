@@ -93,3 +93,27 @@ export async function getMessages(): Promise<Message[]> {
 
   return messages
 }
+
+export async function deleteMessages(formData: FormData) {
+  const session = await auth()
+
+  if (!session || session.user.email !== 'saadbash08@gmail.com') {
+    throw new Error('Unauthorized')
+  }
+
+  const selectedIds = formData.getAll('selectedMessages').map((id) => Number(id))
+
+  if (selectedIds.length === 0) return
+
+  try {
+    const sql = neon(process.env.DATABASE_URL)
+
+    await sql`DELETE FROM guestbook WHERE id = ANY(${selectedIds})`
+
+    revalidatePath('/admin')
+    revalidatePath('/guestbook')
+  } catch (error) {
+    console.error('Error deleting messages:', error)
+    throw new Error('Failed to delete messages')
+  }
+}
