@@ -29,6 +29,37 @@ export async function saveGuestbookEntry(formData: FormData) {
   VALUES (${email}, ${message.slice(0, 500)}, ${session.user.image}, ${email}, NOW())`
 
   revalidatePath('/guestbook')
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({
+      from: 'update@updates.saad.sh',
+      to: 'saadbashdev@gmail.com',
+      subject: 'New Guestbook Entry on saad.sh',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #333;">New Guestbook Entry</h2>
+          <p style="color: #666;"><strong>From:</strong> ${email}</p>
+          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0;">
+            <p style="margin: 0; color: #333;">${message}</p>
+          </div>
+        </div>
+      `,
+    }),
+  })
+
+  if (!res.ok) {
+    console.error('Failed to send email', await res.text())
+  }
+
+  if (res.ok) {
+    const data = await res.json()
+    console.log('Email sent', data)
+  }
 }
 
 export async function hasRecentEntry(email: string): Promise<boolean> {
