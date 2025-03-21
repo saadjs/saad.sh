@@ -68,6 +68,7 @@ export default function GuestbookForm() {
             if (countElement) countElement.innerText = `${count}/500`
           }}
           maxLength={500}
+          minLength={10}
         />
         <div className="absolute bottom-1 right-20 flex items-center space-x-2 text-xs text-gray-400">
           <span id="char-count">0/500</span>

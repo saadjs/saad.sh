@@ -19,8 +19,29 @@ export async function saveGuestbookEntry(formData: FormData) {
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
   await sql`
-  INSERT INTO guestbook (email, message, created_by)
-  VALUES (${email}, ${message.slice(0, 500)}, ${email})`
+  INSERT INTO guestbook (email, message, avatar_url, created_by, created_at)
+  VALUES (${email}, ${message.slice(0, 500)}, ${session.user.image}, ${email}, NOW())`
 
   revalidatePath('/guestbook')
+}
+
+type Message = {
+  id: number
+  email: string
+  message: string
+  created_by: string
+  created_at: string
+  updated_at: string | null
+  avatar_url: string | null
+}
+
+export async function getMessages(): Promise<Message[]> {
+  const sql = neon(process.env.DATABASE_URL)
+
+  const messages = (await sql`
+    SELECT id, email, message, created_by, avatar_url, created_at AT TIME ZONE 'UTC' AT TIME ZONE 'America/New_York' AS created_at 
+    FROM guestbook 
+    ORDER BY created_at DESC`) as Message[]
+
+  return messages
 }
