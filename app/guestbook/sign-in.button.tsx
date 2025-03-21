@@ -7,6 +7,7 @@ export default function SignIn() {
         'use server'
         await signIn('github')
       }}
+      className="mb-8"
     >
       <button
         type="submit"
@@ -19,7 +20,7 @@ export default function SignIn() {
             clipRule="evenodd"
           />
         </svg>
-        Sign in with GitHub
+        Login with GitHub
       </button>
     </form>
   )
