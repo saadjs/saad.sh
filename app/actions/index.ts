@@ -54,12 +54,11 @@ export async function saveGuestbookEntry(formData: FormData) {
 
   if (!res.ok) {
     console.error('Failed to send email', await res.text())
+    throw new Error('Failed to send email')
   }
 
-  if (res.ok) {
-    const data = await res.json()
-    console.log('Email sent', data)
-  }
+  const data = await res.json()
+  console.log('Email sent', data)
 }
 
 export async function hasRecentEntry(email: string): Promise<boolean> {

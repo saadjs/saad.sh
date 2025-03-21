@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getMessages } from 'app/actions'
 
 export default async function Messages() {
@@ -21,10 +22,12 @@ export default async function Messages() {
         >
           <div className="flex items-start space-x-3">
             <div className="h-8 w-8 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
-              <img
+              <Image
                 src={msg.avatar_url}
                 alt={`${msg.email}'s avatar`}
                 className="h-full w-full object-cover"
+                width={32}
+                height={32}
               />
             </div>
             <div className="min-w-0 flex-1">
