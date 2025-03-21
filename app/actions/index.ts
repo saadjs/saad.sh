@@ -23,8 +23,8 @@ export async function saveGuestbookEntry(formData: FormData) {
   const sql = neon(process.env.DATABASE_URL)
 
   await sql`
-  INSERT INTO guestbook (email, message, avatar_url, created_by, created_at)
-  VALUES (${email}, ${message.slice(0, 500)}, ${session.user.image}, ${email}, NOW())`
+  INSERT INTO guestbook (email, message, avatar_url, created_at)
+  VALUES (${email}, ${message.slice(0, 500)}, ${session.user.image}, NOW())`
 
   revalidatePath('/guestbook')
 
@@ -81,7 +81,7 @@ export async function getMessages(): Promise<Message[]> {
   const sql = neon(process.env.DATABASE_URL)
 
   const messages = (await sql`
-    SELECT id, email, message, created_by, avatar_url, created_at AT TIME ZONE 'UTC' AT TIME ZONE 'America/New_York' AS created_at 
+    SELECT id, email, message, avatar_url, created_at AT TIME ZONE 'UTC' AT TIME ZONE 'America/New_York' AS created_at 
     FROM guestbook 
     ORDER BY created_at DESC`) as Message[]
 

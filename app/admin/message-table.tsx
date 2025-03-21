@@ -7,7 +7,6 @@ type Message = {
   id: number
   email: string
   message: string
-  created_by: string
   created_at: string
   updated_at: string | null
   avatar_url: string | null
