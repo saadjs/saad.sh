@@ -22,8 +22,6 @@ export async function saveGuestbookEntry(formData: FormData) {
 
   const sql = neon(process.env.DATABASE_URL)
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
   await sql`
   INSERT INTO guestbook (email, message, avatar_url, created_by, created_at)
   VALUES (${email}, ${message.slice(0, 500)}, ${session.user.image}, ${email}, NOW())`
