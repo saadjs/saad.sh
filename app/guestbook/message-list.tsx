@@ -24,7 +24,7 @@ export default async function Messages() {
             <div className="h-8 w-8 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
               <Image
                 src={msg.avatar_url}
-                alt={`${msg.email}'s avatar`}
+                alt={`${msg.name}'s avatar`}
                 className="h-full w-full object-cover"
                 width={32}
                 height={32}
@@ -34,7 +34,7 @@ export default async function Messages() {
               <p className="break-words text-sm text-gray-700 dark:text-gray-300">{msg.message}</p>
               <p>
                 <span className="break-words text-xs text-gray-500 dark:text-gray-400">
-                  By {msg.email}
+                  By {msg.name}
                 </span>
               </p>
               <p className="text-xs text-gray-400 dark:text-gray-500">
