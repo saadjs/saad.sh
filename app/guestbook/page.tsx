@@ -17,9 +17,7 @@ export default async function Guestbook() {
       <Suspense fallback={<Loading />}>
         {session?.user ? (
           <>
-            <p className="mb-2 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
-              Logged in as {session.user.email}
-            </p>
+            <UserInfo name={session.user.name} email={session.user.email} />
             <Form />
             <SignOut />
           </>
@@ -29,6 +27,15 @@ export default async function Guestbook() {
         <Messages />
       </Suspense>
     </section>
+  )
+}
+
+function UserInfo(user: { name: string; email: string }) {
+  return (
+    <p className="mb-2 mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+      Logged in as <span className="font-bold">{user.name}</span> (
+      <span className="italic">{user.email}</span>)
+    </p>
   )
 }
 
