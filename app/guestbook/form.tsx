@@ -63,22 +63,9 @@ export default function GuestbookForm() {
             formRef.current?.reset()
           } catch (e) {
             setError(
-              e instanceof Error ? (
-                <span>
-                  Something went wrong!{' '}
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline"
-                  >
-                    Check here
-                  </a>{' '}
-                  for more details.
-                </span>
-              ) : (
-                'Something went wrong'
-              )
+              e instanceof Error && e.message === 'too many requests'
+                ? `You have already signed the guestbook. Please wait 24 hours before signing again.`
+                : 'Something went wrong'
             )
           }
         }}
