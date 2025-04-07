@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, type JSX } from 'react'
 import { saveGuestbookEntry } from 'app/actions'
 import { useFormStatus } from 'react-dom'
 
