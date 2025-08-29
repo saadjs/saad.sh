@@ -11,6 +11,7 @@ import Python from './social-icons/python.svg'
 import Nest from './social-icons/nestjs.svg'
 import Jest from './social-icons/jest.svg'
 import Next from './social-icons/next.svg'
+import Chrome from './social-icons/chrome.svg'
 
 export const DevIconsMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   Git,
@@ -26,6 +27,7 @@ export const DevIconsMap: Record<string, React.ComponentType<React.SVGProps<SVGS
   Nest,
   Jest,
   Next,
+  Chrome,
 }
 
 function DevIcon({ icon }) {
