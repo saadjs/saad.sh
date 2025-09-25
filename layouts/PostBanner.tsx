@@ -9,25 +9,30 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { CopyPostButton } from '@/components/CopyPostButton'
 
 interface LayoutProps {
   content: CoreContent<Post>
+  post: Post
   children: ReactNode
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
 }
 
-export default function PostMinimal({ content, next, prev, children }: LayoutProps) {
-  const { slug, title, images } = content
+export default function PostMinimal({ content, post, next, prev, children }: LayoutProps) {
+  const { slug, title, images, path, summary } = content
   const displayImage =
     images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
+  const siteBaseUrl = siteMetadata.siteUrl.replace(/\/$/, '')
+  const canonicalUrl = `${siteBaseUrl}/${path}`
+  const postContent = post.body.raw ?? ''
 
   return (
     <SectionContainer>
       <ScrollTopAndComment />
       <article>
         <div>
-          <div className="space-y-1 pb-10 text-center dark:border-gray-700">
+          <div className="space-y-4 pb-10 text-center">
             <div className="w-full">
               <Bleed>
                 <div className="relative aspect-[2/1] w-full">
@@ -36,7 +41,15 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
               </Bleed>
             </div>
             <div className="relative pt-10">
-              <PageTitle>{title}</PageTitle>
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+                <PageTitle>{title}</PageTitle>
+                <CopyPostButton
+                  postTitle={title}
+                  postUrl={canonicalUrl}
+                  postContent={postContent}
+                  postSummary={summary}
+                />
+              </div>
             </div>
           </div>
           <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
