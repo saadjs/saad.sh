@@ -8,16 +8,21 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { CopyPostButton } from '@/components/CopyPostButton'
 
 interface LayoutProps {
   content: CoreContent<Post>
+  post: Post
   children: ReactNode
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
 }
 
-export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { path, slug, date, title } = content
+export default function PostLayout({ content, post, next, prev, children }: LayoutProps) {
+  const { path, slug, date, title, summary } = content
+  const siteBaseUrl = siteMetadata.siteUrl.replace(/\/$/, '')
+  const canonicalUrl = `${siteBaseUrl}/${path}`
+  const postContent = post.body.raw ?? ''
 
   return (
     <SectionContainer>
@@ -25,7 +30,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
       <article>
         <div>
           <header>
-            <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
+            <div className="space-y-4 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
               <dl>
                 <div>
                   <dt className="sr-only">Published on</dt>
@@ -34,8 +39,14 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   </dd>
                 </div>
               </dl>
-              <div>
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <PageTitle>{title}</PageTitle>
+                <CopyPostButton
+                  postTitle={title}
+                  postUrl={canonicalUrl}
+                  postContent={postContent}
+                  postSummary={summary}
+                />
               </div>
             </div>
           </header>
