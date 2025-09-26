@@ -44,7 +44,7 @@ function SubmitButton() {
 
 export default function GuestbookForm() {
   const formRef = useRef<HTMLFormElement>(null)
-  const [error, setError] = useState<string | JSX.Element | null>(null)
+  const [error, setError] = useState<string | React.ReactElement | null>(null)
 
   return (
     <div>
