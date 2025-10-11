@@ -12,7 +12,8 @@ import Nest from './social-icons/nestjs.svg'
 import Jest from './social-icons/jest.svg'
 import Next from './social-icons/next.svg'
 import Chrome from './social-icons/chrome.svg'
-import { WandSparkles as Sparkles } from 'lucide-react'
+import Docker from './social-icons/docker.svg'
+import { Bot } from './social-icons/icons'
 
 export const DevIconsMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   Git,
@@ -29,7 +30,8 @@ export const DevIconsMap: Record<string, React.ComponentType<React.SVGProps<SVGS
   Jest,
   Next,
   Chrome,
-  Sparkles,
+  Bot,
+  Docker,
 }
 
 function DevIcon({ icon }) {
