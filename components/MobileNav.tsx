@@ -75,6 +75,7 @@ const MobileNav = () => {
         aria-label="Close navigation menu"
         className={`fixed inset-0 z-60 bg-black/25 transition-opacity duration-200 ease-out focus:outline-none ${navShow ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} border-0 p-0`}
         onClick={onToggleNav}
+        tabIndex={navShow ? 0 : -1}
       />
 
       <div
