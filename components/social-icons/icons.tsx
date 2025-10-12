@@ -46,9 +46,9 @@ export function Bot(svgProps: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="M12 8V4H8" />
       <rect width="16" height="12" x="4" y="8" rx="2" />
