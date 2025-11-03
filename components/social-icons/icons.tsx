@@ -39,9 +39,10 @@ export function Bash(svgProps: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-export function Bot(svgProps: SVGProps<SVGSVGElement>) {
+export function Bot({ className, fill: _fill, ...svgProps }: SVGProps<SVGSVGElement>) {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
@@ -49,6 +50,7 @@ export function Bot(svgProps: SVGProps<SVGSVGElement>) {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      {...svgProps}
     >
       <path d="M12 8V4H8" />
       <rect width="16" height="12" x="4" y="8" rx="2" />
