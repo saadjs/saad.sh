@@ -7,8 +7,8 @@ import { formatDate } from 'pliny/utils/formatDate'
 
 export default function Home({ posts }) {
   return (
-    <div className="space-y-12">
-      <header className="space-y-3 pb-4 pt-6 sm:space-y-4 md:pb-6">
+    <div className="space-y-12 pt-6 sm:pt-8">
+      <header className="ui-panel space-y-3 p-6 sm:space-y-4 sm:p-7 md:p-8">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
           Latest
         </h1>
@@ -23,11 +23,11 @@ export default function Home({ posts }) {
 
           return (
             <li key={slug} className="h-full">
-              <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-primary-400/60 hover:shadow-md dark:border-slate-800/70 dark:bg-slate-900/70 dark:hover:border-primary-500/50">
+              <article className="ui-panel group relative flex h-full flex-col justify-between gap-6 p-6 sm:p-7">
                 <Link
                   href={`/posts/${slug}`}
                   aria-label={`Read "${title}"`}
-                  className="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-500"
+                  className="ui-panel-overlay absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-500"
                 >
                   <span className="sr-only">Read {title}</span>
                 </Link>

@@ -12,7 +12,7 @@ import SearchButton from './SearchButton'
 const Header = () => {
   const pathname = usePathname()
 
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10'
+  let headerClass = 'nav-glass flex w-full items-center justify-between gap-6'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }

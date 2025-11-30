@@ -38,7 +38,7 @@ export default function ListLayoutWithTags({
 
   return (
     <div className="space-y-12 pb-12 pt-6">
-      <header className="space-y-2">
+      <header className="ui-panel space-y-3 p-6 sm:space-y-4 sm:p-7 md:p-8">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
           {title}
         </h1>
@@ -60,7 +60,7 @@ export default function ListLayoutWithTags({
       </header>
 
       <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
-        <aside className="hidden w-full max-w-xs flex-shrink-0 rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800/70 dark:bg-slate-900/70 lg:block">
+        <aside className="ui-panel hidden w-full max-w-xs flex-shrink-0 p-6 sm:p-7 lg:block">
           <div className="space-y-4">
             {pathname.startsWith('/posts') ? (
               <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-500">
@@ -116,11 +116,11 @@ export default function ListLayoutWithTags({
 
                 return (
                   <li key={path}>
-                    <article className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-primary-400/60 hover:shadow-md dark:border-slate-800/70 dark:bg-slate-900/70 dark:hover:border-primary-500/50">
+                    <article className="ui-panel group relative flex flex-col justify-between overflow-hidden p-6 sm:p-7">
                       <Link
                         href={`/${path}`}
                         aria-label={`Read "${postTitle}"`}
-                        className="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-500"
+                        className="ui-panel-overlay absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-500"
                       >
                         <span className="sr-only">Read {postTitle}</span>
                       </Link>

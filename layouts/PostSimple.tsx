@@ -27,7 +27,7 @@ export default function PostLayout({ content, post, next, prev, children }: Layo
   return (
     <SectionContainer>
       <ScrollTopAndComment />
-      <article>
+      <article className="ui-panel space-y-6 p-6 sm:p-7 lg:p-9">
         <div>
           <header>
             <div className="space-y-4 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
