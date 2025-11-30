@@ -203,3 +203,8 @@ body.app-shell {
   box-shadow: 0 0 0 3px var(--glow);
   background: var(--panel-strong);
 }
+
+/* KBar search modal styles - fix z-index for proper overlay */
+div.p-4.backdrop-blur.backdrop-filter {
+  z-index: 9999 !important;
+}
