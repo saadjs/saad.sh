@@ -12,7 +12,7 @@ export default async function Guestbook() {
   const session = await auth()
 
   return (
-    <section>
+    <section className="pt-10">
       <h1 className="mb-8 text-3xl font-bold tracking-tighter">✍️ Sign my Guestbook</h1>
       <Suspense fallback={<Loading />}>
         {session?.user ? (

@@ -16,7 +16,7 @@ export default async function Admin() {
   const messages = await getMessages()
 
   return (
-    <section className="p-4">
+    <section className="pt-10">
       <h1 className="text-2xl font-bold">Admin</h1>
       <div className="space-y-4">
         <MessageTable messages={messages} />

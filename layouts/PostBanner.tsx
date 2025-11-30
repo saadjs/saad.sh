@@ -30,7 +30,7 @@ export default function PostMinimal({ content, post, next, prev, children }: Lay
   return (
     <SectionContainer>
       <ScrollTopAndComment />
-      <article>
+      <article className="mt-10">
         <div>
           <div className="space-y-4 pb-10 text-center">
             <div className="w-full">

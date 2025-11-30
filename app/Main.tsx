@@ -7,7 +7,7 @@ import { formatDate } from 'pliny/utils/formatDate'
 
 export default function Home({ posts }) {
   return (
-    <div className="space-y-12 pt-6 sm:pt-8">
+    <div className="space-y-10 pt-10">
       <header className="ui-panel space-y-3 p-6 sm:space-y-4 sm:p-7 md:p-8">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
           Latest

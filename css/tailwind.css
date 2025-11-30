@@ -179,6 +179,7 @@ body.app-shell {
 
 .footer-rail {
   border-top: 1px solid var(--panel-border);
+  margin-top: 2.5rem;
   padding-top: 1.5rem;
 }
 
