@@ -12,7 +12,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'next',
     'next/core-web-vitals',
@@ -40,4 +39,16 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'no-console': 'error',
   },
+  overrides: [
+    {
+      files: ['scripts/**/*.mjs'],
+      parserOptions: {
+        project: null,
+      },
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+        'no-console': 'off',
+      },
+    },
+  ],
 }
