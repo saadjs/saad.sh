@@ -13,7 +13,7 @@ import Jest from './social-icons/jest.svg'
 import Next from './social-icons/next.svg'
 import Chrome from './social-icons/chrome.svg'
 import Docker from './social-icons/docker.svg'
-import { Bot } from './social-icons/icons'
+import { AI } from './social-icons/icons'
 
 export const DevIconsMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   Git,
@@ -30,7 +30,7 @@ export const DevIconsMap: Record<string, React.ComponentType<React.SVGProps<SVGS
   Jest,
   Next,
   Chrome,
-  Bot,
+  AI,
   Docker,
 }
 

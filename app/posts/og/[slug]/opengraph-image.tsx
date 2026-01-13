@@ -20,7 +20,7 @@ const iconColors: Record<string, string> = {
   Nest: '#E0234E',
   Shell: '#4EAA25',
   Docker: '#2496ED',
-  Bot: '#f97316',
+  AI: '#f97316',
   Dart: '#0175C2',
   Flask: '#000000',
   Postgres: '#4169E1',
@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const post = allPosts.find((p) => p.slug === postSlug)
 
   const title = post?.title || 'Blog Post'
-  const icon = post?.icon || 'Bot'
+  const icon = post?.icon || 'AI'
   const iconColor = iconColors[icon] || '#f97316'
 
   // Adjust font size based on title length
