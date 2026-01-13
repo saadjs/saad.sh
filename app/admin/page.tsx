@@ -9,7 +9,7 @@ export const metadata = genPageMetadata({ title: 'Admin' })
 export default async function Admin() {
   const session = await auth()
 
-  if (!session || session.user.email !== 'saadbash08@gmail.com') {
+  if (!session || session.user.email !== process.env.ADMIN_EMAIL) {
     redirect('/')
   }
 
