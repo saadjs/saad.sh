@@ -10,6 +10,7 @@ interface PageSEOProps {
 }
 
 export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
+  const resolvedImage = image || siteMetadata.socialBanner
   return {
     title,
     description: description || siteMetadata.description,
@@ -18,9 +19,15 @@ export function genPageMetadata({ title, description, image, ...rest }: PageSEOP
       description: description || siteMetadata.description,
       url: './',
       siteName: siteMetadata.title,
-      images: image ? [image] : [siteMetadata.socialBanner],
+      images: [resolvedImage],
       locale: 'en_US',
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | ${siteMetadata.title}`,
+      description: description || siteMetadata.description,
+      images: [resolvedImage],
     },
     ...rest,
   }
