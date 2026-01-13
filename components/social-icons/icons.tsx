@@ -39,7 +39,7 @@ export function Bash(svgProps: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-export function Bot({ className, fill: _fill, ...svgProps }: SVGProps<SVGSVGElement>) {
+export function AI({ className, fill: _fill, ...svgProps }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       className={className}
