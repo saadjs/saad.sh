@@ -5,7 +5,13 @@ import siteMetadata from '@/data/siteMetadata'
 export const alt = 'Blog Post'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
-export const runtime = 'edge'
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: Buffer.from(post.slug, 'utf8').toString('base64url'),
+  }))
+}
 
 const iconColors: Record<string, string> = {
   Flutter: '#02569B',
