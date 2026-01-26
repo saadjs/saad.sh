@@ -92,7 +92,7 @@ export async function getMessages(): Promise<Message[]> {
 export async function deleteMessages(formData: FormData) {
   const session = await auth()
 
-  if (!session || session.user.email !== 'saadbash08@gmail.com') {
+  if (!session || session.user.email !== process.env.ADMIN_EMAIL) {
     throw new Error('Unauthorized')
   }
 

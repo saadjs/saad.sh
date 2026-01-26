@@ -4,7 +4,7 @@
 
 This is a fork of [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) with some modifications.
 
-- **Framework** - Next.js 14
+- **Framework** - Next.js 15
 - **CSS** - TailwindCSS
 - **Deployment** - Vercel
 
