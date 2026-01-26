@@ -2,12 +2,10 @@ import { ReactNode } from 'react'
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Post } from 'contentlayer/generated'
-import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CopyPostButton } from '@/components/CopyPostButton'
 
 interface LayoutProps {
@@ -26,7 +24,6 @@ export default function PostLayout({ content, post, next, prev, children }: Layo
 
   return (
     <SectionContainer>
-      <ScrollTopAndComment />
       <article className="ui-panel mt-10 space-y-6 p-6 sm:p-7 lg:p-9">
         <div>
           <header>
@@ -54,11 +51,6 @@ export default function PostLayout({ content, post, next, prev, children }: Layo
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
             </div>
-            {siteMetadata.comments && (
-              <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-                <Comments slug={slug} />
-              </div>
-            )}
             <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && prev.path && (

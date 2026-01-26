@@ -3,12 +3,10 @@ import Image from '@/components/Image'
 import Bleed from 'pliny/ui/Bleed'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Post } from 'contentlayer/generated'
-import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CopyPostButton } from '@/components/CopyPostButton'
 
 interface LayoutProps {
@@ -29,7 +27,6 @@ export default function PostMinimal({ content, post, next, prev, children }: Lay
 
   return (
     <SectionContainer>
-      <ScrollTopAndComment />
       <article className="mt-10">
         <div>
           <div className="space-y-4 pb-10 text-center">
@@ -53,11 +50,6 @@ export default function PostMinimal({ content, post, next, prev, children }: Lay
             </div>
           </div>
           <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
-          {siteMetadata.comments && (
-            <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-              <Comments slug={slug} />
-            </div>
-          )}
           <footer>
             <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
               {prev && prev.path && (

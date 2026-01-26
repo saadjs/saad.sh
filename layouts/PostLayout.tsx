@@ -6,7 +6,6 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CopyPostButton } from '@/components/CopyPostButton'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
@@ -43,7 +42,6 @@ export default function PostLayout({
 
   return (
     <SectionContainer>
-      <ScrollTopAndComment />
       <article className="ui-panel mt-10 space-y-4 p-6 sm:p-7 lg:p-9">
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">

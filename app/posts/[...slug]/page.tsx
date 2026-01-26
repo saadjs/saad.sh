@@ -41,6 +41,8 @@ export async function generateMetadata(props: {
   const encodedSlug = Buffer.from(slug).toString('base64url')
   const ogImage = `/posts/og/${encodedSlug}/opengraph-image`
   const twitterImage = `/posts/og/${encodedSlug}/twitter-image`
+  const siteBaseUrl = siteMetadata.siteUrl.replace(/\/$/, '')
+  const canonicalUrl = `${siteBaseUrl}/${post.path}`
 
   return {
     title: post.title,
@@ -54,7 +56,7 @@ export async function generateMetadata(props: {
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
-      url: './',
+      url: canonicalUrl,
       authors: authors.length > 0 ? authors : [siteMetadata.author],
     },
     twitter: {
@@ -62,6 +64,9 @@ export async function generateMetadata(props: {
       title: post.title,
       description: post.summary,
       images: [twitterImage],
+    },
+    alternates: {
+      canonical: canonicalUrl,
     },
   }
 }
